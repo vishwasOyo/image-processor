@@ -1,0 +1,32 @@
+<%= form_for(@image, html: { class: 'directUpload', data: { 'form-data' => (@s3_direct_post.fields), 'url' => @s3_direct_post.url, 'host' => URI.parse(@s3_direct_post.url).host } }) do |f| %>
+  <div class="col-md-12 imageApp__header">
+    <div class="col-md-6 col-md-offset-3">
+    <% if image.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(image.errors.count, "error") %> prohibited this image from being saved:</h2>
+
+        <ul>
+        <% image.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label 'Name of the Image' %>
+      <%= f.text_field :name %>
+    </div>
+
+
+    <div class="field">
+      <%= f.label 'Upload An Image' %>
+      <%= f.file_field :original_url %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+    <div>
+  <div>
+<% end %>

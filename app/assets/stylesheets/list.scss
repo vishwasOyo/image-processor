@@ -1,0 +1,51 @@
+$white: #fff;
+$black: #000;
+$border: #eee;
+$bg: #efefef;
+* {
+  padding: 0;
+  margin: 0;
+}
+body {
+  margin: 16px;
+}
+.imageApp {
+  &__header {
+    padding: 4px;
+    text-align: center;
+    border: 1px solid $border;
+    margin-bottom: 20px;
+  }
+  &__headerContainer {
+    background: $bg;
+    padding: 20px 0;
+  }
+  &__link {
+    color: $white;
+    &:visited {
+      color: $white;
+    }
+  }
+  &__buttonContainer {
+    border: 1px solid $border;
+    padding: 16px;
+    margin-bottom: 20px;
+  }
+  &__imageCaption {
+    position: absolute;
+    top: 0;
+    left: 15px;
+    box-sizing: border-box;
+    width: calc(100% - 30px);
+    color: $white;
+    padding: 8px;
+    background: transparentize($black, 0.6);
+    box-shadow: 0 2px 1px 0 transparentize($white,.65);
+  }
+}
+
+.formApp {
+  &__heading {
+    margin: 0;
+  }
+}

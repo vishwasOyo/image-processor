@@ -1,0 +1,46 @@
+<p id="notice"><%= notice %></p>
+
+<div class="container">
+  <div class="imageApp__header">
+    <div class="imageApp__headerContainer">
+      <div class="row">
+        <div class="col col-md-6 col-md-offset-3">
+          <h3>Image Gallery</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-12 imageApp__buttonContainer">
+    <div class="row">
+      <div class="col col-md-4">
+        <%= link_to 'Upload Image', new_image_path , class: "btn btn-primary imageApp__link" %>
+      </div>
+      <div class="col col-md-4">
+      </div>
+      <div class="col col-md-4 text-right">
+        <a href="" class="btn btn-success">
+          <span class="glyphicon glyphicon-refresh"></span> Refresh
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <% @images.each do |image| %>
+      <div class="col-md-12 imageApp__buttonContainer">
+      <% if image.status %>
+        <% if image.short_url %>
+          <div class="col col-md-offset-3 col-md-6 text-center">
+            <span class="imageApp__imageCaption"> <%= image.name %> </span>
+            <%= image_tag image.short_url , alt: image.name, class: 'img-responsive' %>
+          </div>
+        <% end %>
+      <% end %>
+      </div>
+      </br>
+  <% end %>
+
+  <div class="image_pagination">
+    <%= will_paginate @images %>
+  </div>
+</div>
