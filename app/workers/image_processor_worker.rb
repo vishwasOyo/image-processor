@@ -54,7 +54,7 @@ class ImageProcessorWorker
 
       Rails.logger.info "ImageThumbnailJob URL: - Upload done"
 
-      final_url = "host_url"+final_image_name
+      final_url = get_host_name()+final_image_name
 
       image_obj.update_attributes(:short_url => final_url , :status => 1)
 
@@ -90,8 +90,11 @@ class ImageProcessorWorker
     if Rails.env.development? || Rails.env.test?
       folder = ""
     else
-      folder = "processed/#{Time.now.strftime("%m-%d-%Y")}/"
+      folder = "processed/"
     end
   end
 
+  def get_host_name
+    host = ENV['S3_URL']
+  end
 end
