@@ -84,4 +84,4 @@ production:
   <<: *default
   database: image-processor_production
   username: image-processor
-  password: <%= ENV['IMAGE-PROCESSOR_DATABASE_PASSWORD'] %>
+  password: <%= ENV['IMAGE_PROCESSOR_DATABASE_PASSWORD']%>
