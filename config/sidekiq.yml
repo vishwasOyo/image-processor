@@ -3,12 +3,9 @@
 :concurrency: 10
 :pidfile: tmp/pids/sidekiq.pid
 :queues:
-  - [critical, 2]
-  - default
-  - low
+  - [image-processor-q,2]
 
 production:
-  :concurrency: 25
-
+  :concurrency: 5
 staging:
   :concurrency: 15
